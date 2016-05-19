@@ -33,13 +33,13 @@
                <article class="{% cycle 'post-1' 'post-2' 'post-3' 'post-4' 'post-5' %} {% cycle 'right-align'  '  ' %} line">
                   <!-- image -->                 
                   <div class="s-12 l-6 post-image">                   
-                     <a href="{% url 'Blog:post_detail' post.id %}">
+                     <a href="{{ post.get_absolute_url }}">
                      <img src="{{ post.image_field.url }}" alt="{{ post.title }}">
                      </a>                
                   </div>
                   <!-- text -->                 
                   <div class="s-12 l-5 post-text">
-                     <a href="{% url 'Blog:post_detail' post.id %}">
+                     <a href="{{ post.get_absolute_url }} ">
                         <h2>{{ post.title }}</h2>
                      </a>
                      <p>{{ post.content|slice:":60" }}                 

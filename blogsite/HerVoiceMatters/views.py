@@ -5,6 +5,10 @@ from django.views.generic import ListView ,TemplateView,DetailView
 from django.contrib.auth.models import User
 
 # Create your views here.
+#home view index page
+class HomeView(TemplateView):
+	template_name = 'base.html'
+
 
 class PostList(ListView):
 	template_name = 'blog.html'
@@ -23,6 +27,7 @@ class PostList(ListView):
 class EventList(ListView):
 	template_name = 'event_list.html'
 	context_object_name= "events"
+	paginate_by = 10
 
 	def get_queryset(self):
 		return Event.objects.all()

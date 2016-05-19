@@ -27,6 +27,9 @@ class Event(models.Model):
 	class Meta:
 		ordering = ['-event_date']
 
+	def get_absolute_url(self):
+		return reverse ('Blog:event_detail', kwargs ={'pk':self.id})
+
 
 class Gallery(models.Model):
 	height_img = models.IntegerField(default = 0)
@@ -70,7 +73,7 @@ class Post(models.Model):
 		return self.title
 
 	def get_absolute_url(self):
-		return reverse ('posts:detail', kwargs ={'id':self.id})
+		return reverse ('Blog:post_detail', kwargs ={'pk':self.id})
 	class Meta:
 		ordering = ["-created_date"]
 

@@ -32,13 +32,19 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'django.contrib.sites',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'HerVoiceMatters',
+    'disqus',
 ]
+
+
+DISQUS_API_KEY = '5zTrJ7JPUyrSB5yeL01Z2w4R1PzrmcuWgtKPUwfk1KiFdsYHZWanz6xxHgxD4C1Q'
+DISQUS_WEBSITE_SHORTNAME = 'hervoicematters'
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',

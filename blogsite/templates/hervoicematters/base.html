@@ -36,12 +36,12 @@
             <div class="line">
                <div class="top-nav">              
                   <div class="logo hide-l">
-                     <a href="index.html">Megaga <br /><strong>Lucy</strong></a>
+                     <a href="{% url 'Blog:home'%}">Megaga <br /><strong>Lucy</strong></a>
                   </div>                  
-                  <p class="nav-text">Custom menu text</p>
+                  <p class="nav-text">HerVoiceMatters</p>
                   <div class="top-nav s-12 l-5">
                      <ul class="right top-ul chevron">
-                        <li><a href="index.html">Home</a>
+                        <li><a href="{% url 'Blog:home' %}">Home</a>
                         </li>
                         <li>
                            <a>Programs</a>			    
@@ -64,13 +64,13 @@
                            </ul>
                         </li>
                          <li>
-                              <a>Blog</a>  				  
+                              <a href="{% url 'Blog:posts' %}">Blog</a>  				  
                                  <ul>
-                                    <li><a>Girl Talk</a>
+                                    <li><a href="{% url 'Blog:posts' %}?category=women_talk">Girl Talk</a>
                                     </li>
-                                    <li><a>Fashion</a>
+                                    <li><a href="{% url 'Blog:posts' %}?category=fashion">Fashion</a>
                                     </li>
-                                    <li><a>Food</a>
+                                    <li><a href="{% url 'Blog:posts' %}?category=food">Food</a>
                                     </li>
                                  </ul>
                         </li>
@@ -78,16 +78,15 @@
                   </div>
                   <ul class="s-12 l-2">
                      <li class="logo hide-s hide-m">
-                        <a href="index.html">Megaga <br /><strong>Lucy</strong></a>
+                        <a href="{% url 'Blog:home' %}">Megaga <br /><strong>Lucy</strong></a>
                      </li>
                   </ul>
                   <div class="top-nav s-12 l-5">
                      <ul class="top-ul chevron">
-                        <li><a href="gallery.html">Gallery</a>
-                        </li>
-                     <li><a href="contact.html">About Us</a>
-                        </li><li><a href="contact.html">Contact</a>
-                        </li>
+                        <li><a href="{% url 'Blog:events' %}">Events</a></li>
+                        <li><a href="{% url 'Blog:gallery' %}">Gallery</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
                      </ul> 
                   </div>
                </div>
@@ -285,7 +284,8 @@
          });	
           
       </script> 
-
+<script id="dsq-count-scr" src="//hervoicematters.disqus.com/count.js" async></script>
+    
    </body>
 </html>
 

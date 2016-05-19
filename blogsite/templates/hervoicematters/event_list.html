@@ -1,9 +1,90 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+{% extends 'about.html' %}
 
-</body>
-</html>
+{% block section %}
+
+  <!-- MAIN SECTION -->                  
+      <section id="home-section" class="line">
+         <div class="margin">
+
+
+            <!-- ARTICLES -->             
+            <div class="s-12 l-9" style="margin-top: 23px;">
+         
+           <div class="pagination">
+               <span class="step-links">
+               {% if page_obj.has_previous %}
+                   <a class="continue-reading" style="background: #B71757;" href="?page={{ page_obj.previous_page_number }}">previous</a>
+               {% endif %}
+
+                <span class="current">
+                   Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                   {% if page_obj.has_next %}
+                       <a class="continue-reading" style="background: #0D7E71;" href="?page={{ page_obj.next_page_number }}">next</a>
+                    {% endif %}
+              </span>
+           </div>
+             {% for event in events %}
+           <article class="{% cycle 'post-1' 'post-2' 'post-3' 'post-4' 'post-5' %} line">
+                  <!-- text -->                 
+                  <div class="s-12 l-9 post-text">
+                     <a href="{{ event.get_absolute_url }}">
+                        <h3>{{ event.title }}</h3>
+                     <p>organized by {{event.organizer}}</p>
+                     </a>
+                     <p>{{ event.description|slice:":150" }}</p>
+                  </div>
+                  <!-- date -->                 
+                  <div class="s-12 l-3 event-date">
+                     <p class="date">{{ event.event_date|date:"d" }}             
+                     </p>
+                     <p class="month">{{ event.event_date|date:"b" }}             
+                     </p>
+                      <p><a href="{{ event.get_absolute_url }}">
+                     <img src="{{ event.image_field.url }}" alt="{{ event.title }}">
+                     </a></p>
+                  </div>
+               </article>
+             {% endfor %}
+
+            <div class="pagination">
+               <span class="step-links">
+               {% if page_obj.has_previous %}
+                   <a class="continue-reading" style="background: #0D7E71;" href="?page={{ page_obj.previous_page_number }}">previous</a>
+               {% endif %}
+
+                <span class="current">
+                   Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                   {% if page_obj.has_next %}
+                       <a class="continue-reading" style="background: #B71757;" href="?page={{ page_obj.next_page_number }}">next</a>
+                    {% endif %}
+              </span>
+           </div>
+           </div><!-- end section -->
+
+                  <!-- SIDEBAR -->             
+            <div class="s-12 l-3"  style="margin-top: 23px;">
+               <aside>
+                  <!-- Events 1 -->   
+                  {% for event in events %}          
+                  <div class="aside-block margin-bottom">
+                     <h3>{{ event.title }}</h3>
+                     <p>{{ event.description| slice:":100"}}</p>
+                     <a class="continue-reading" href="{% url 'Blog:event_detail' event.id %}">View Event </a>
+                  </div>
+                  {% endfor %}
+                  <!-- AD REGION -->         
+                  <div class="advertising margin-bottom">
+                     <img src="img/banner.jpg" alt="ad banner">         
+                  </div>
+               </aside>
+            </div>
+
+
+         </div>
+      </section>
+
+{% endblock %}
