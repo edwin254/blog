@@ -1,0 +1,88 @@
+{% extends 'about.html' %}
+{% block title %} Login Form{% endblock %}
+{% block nav %} 
+   <!-- top nav --> 
+      <header>
+         <nav  style="height:100px;color:white;">
+            <div class="line">
+               <div class="top-nav">             
+                  <div class="top-nav s-12 l-12">
+            <div class="s-12 l-8">
+                  <h2 style="color:white;">HerVoiceMatters Initiative</h2>
+                  <h3 style="color:#0D7E71;">Join Us and lets walk together to promote the Woman</h3>
+            </div>
+            <div class="s-12 l-4">
+               
+            </div>
+          </div>
+                 
+               </div>
+            </div>
+         </nav>
+      </header>
+{% endblock %}
+
+{% block section %}
+   
+
+<!-- MAIN SECTION -->                  
+      <section id="article-section" class="line">
+         <div class="margin">
+            <!-- ARTICLES -->  
+           <div class="margin-bottom">  </div>         
+            <div class="s-12  l-4 center">
+               <!-- ARTICLE 1 -->               
+               <article class="margin-bottom">
+                     <div class="line">
+                        <div class="margin">
+
+                             <!-- text -->                 
+                             <div class="post-text">
+                             <!-- flash messages -->
+                             {% if messages %}
+                             {% for message in messages %}
+                             <blockquote class="s-12" {% if message.tags == 'info' %} style="color:#4285F4;"{% endif %}
+                             {% if message.tags == 'error' %}  style="color:#34A853;" {% endif %} >
+                             {{ message }}</blockquote>
+                             {% endfor %}
+                             {% endif %}
+
+                              <form class="customform" role="form" action="" method="post" >
+                              {% csrf_token %}
+                              {% for field in form %}
+
+                                 <div class="s-12"><h5>{{field.html_name | title }}:</h5></div>
+                                 <div class="s-12">{{field}}</div>
+                                 {% endfor %}
+                                 <button type="submit">Submit Button</button>
+                              </form>
+
+                        </div>
+                        <h4>Login with:</h4>
+                        <button> <a href="accounts">facebook</a></button>
+                        <button><a href="">Twitter</a></button>
+                        <button> <a href="">Google</a></button>
+                        <button><a href="">Sign Up</a></button>
+                        
+                     </div>
+                  </div>
+                  <!-- MAP -->	
+                 <!--  <div id="map-block">  	  
+                     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d682251.1123056135!2d17.063451638281247!3d48.09010461740988!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c8cbf758ecb9f%3A0xddeb1d26bce5eccf!2sGallayova+2150%2F19%2C+841+02+D%C3%BAbravka%2C+Slovensk%C3%A1+republika!5e0!3m2!1ssk!2s!4v1412519122400" width="100%" height="450" frameborder="0" style="border:0"></iframe>
+                  </div> -->
+               </article>
+
+         </div>
+         </div>
+
+      </section>
+      <!-- end section -->       
+
+{% endblock %}
+
+{% block footer %}
+
+
+{% endblock %}
+
+     

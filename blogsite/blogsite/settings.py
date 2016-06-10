@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
+from django.core.urlresolvers import reverse_lazy
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,8 +27,14 @@ SECRET_KEY = '3$a(fm8*sz9(_*+!w#6w@y4u%md791i&ae6rneee&6v$q!q+0('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [] 
 
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = '1025'
+# EMAIL_HOST_USER
+# EMAIL_HOST_PASSWORD
+
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Application definition
 
@@ -40,8 +48,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'HerVoiceMatters',
     'disqus',
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
+    # 'allauth.socialaccount.providers.facebook',
+    # 'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.twitter',
 ]
 
+SITE_ID = 1
 
 DISQUS_API_KEY = '5zTrJ7JPUyrSB5yeL01Z2w4R1PzrmcuWgtKPUwfk1KiFdsYHZWanz6xxHgxD4C1Q'
 DISQUS_WEBSITE_SHORTNAME = 'hervoicematters'
@@ -59,6 +74,13 @@ MIDDLEWARE_CLASSES = [
 
 ROOT_URLCONF = 'blogsite.urls'
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.request',
+    'django.contrib.auth.context_processors.auth',
+    # 'allauth.account.context_processors.account',
+    # 'allauth.socialaccount.context_processors.socialaccount'
+)
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -74,6 +96,16 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = (
+
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
 
 WSGI_APPLICATION = 'blogsite.wsgi.application'
 
@@ -134,3 +166,17 @@ STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_root')
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media_root/hervoicematters')
+
+# #LOGIN_URL = reverse_lazy('blog:login')
+# LOGIN_REDIRECT_URL = '/'
+# #LOGOUT_URL =reverse_lazy('blog:logout')
+
+# SOCIALACCOUNT_QUERY_EMAIL = True
+# SOCIALACCOUNT_PROVIDERS = {
+#     'facebook': {
+#         'SCOPE': ['email'],
+#         'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+#         'METHOD': 'oauth2',
+#         'VERIFIED_EMAIL': False
+#     }
+# }

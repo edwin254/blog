@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block section %}<!-- start of body section  -->
+
+ <section>
+         <div id="head">
+            <div class="line">
+               <h1>HerVoiceMatters Events gallery</h1>
+            </div>
+         </div>
+
+         <div id="content">
+            <div class="line">
+               <div class="margin">
+               {% for image in gallery %}
+                   <div class="s-12 m-6 l-3">
+                      <img src="{{ image.image_field.url }}">      
+                      <p class="subtitile">{{ image.description | slice:":70"}}
+                      </p>
+                   </div>
+                   {% endfor %}
+                   
+               </div>
+            </div>
+         </div>
+
+         <div id="second-block">
+            <div class="line">
+               <div id="owl-demo2" class="owl-carousel owl-theme">
+               {% for post in posts %}
+                  <div class="item">
+                     <h2>{{post.title}}</h2>
+                     <p class="s-12 m-12 l-8 center">
+                     {{ post.content |slice:":150"}}
+                     </p>
+                  </div>
+                  {% endfor %}
+               </div>
+            </div>
+         </div>
+      </section>
+
+
+{% endblock %} <!-- END TOP NAV  -->

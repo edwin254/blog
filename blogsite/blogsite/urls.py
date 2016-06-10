@@ -19,7 +19,11 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 
 urlpatterns = [
+
+    #Admin Urls
+    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', admin.site.urls),
+    
     url(r'', include('HerVoiceMatters.urls')),
 ]
 

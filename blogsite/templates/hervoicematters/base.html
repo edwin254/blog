@@ -6,7 +6,7 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>{% block title %}{% endblock %}</title>
+      <title>{% block title %} HerVoiceMatters{% endblock %}</title>
 
        {% load staticfiles %}
       <link rel="stylesheet" href="{% static 'css/components.css' %}">
@@ -35,60 +35,48 @@
          <nav>
             <div class="line">
                <div class="top-nav">              
-                  <div class="logo hide-l">
-                     <a href="{% url 'Blog:home'%}">Megaga <br /><strong>Lucy</strong></a>
-                  </div>                  
+                              
                   <p class="nav-text">HerVoiceMatters</p>
-                  <div class="top-nav s-12 l-5">
+                  <div class="top-nav s-12 l-12">
+              
+                  
                      <ul class="right top-ul chevron">
                         <li><a href="{% url 'Blog:home' %}">Home</a>
                         </li>
                         <li>
                            <a>Programs</a>			    
                            <ul>
-                              <li><a> Counselling</a>
+                              <li><a href="#counselling"> Counselling</a>
                               </li>
-                              <li><a> Mentorship</a>
+                              <li><a href="#mentorship"> Mentorship</a>
                               </li>
                               <li>
                                   <a>Talenting our skills</a>  				  
                                  <ul>
-                                    <li><a>public writing </a>
+                                    <li><a href="#writing">public writing </a>
                                     </li>
-                                    <li><a>Poetry</a>
+                                    <li><a href="#poetry">Poetry</a>
                                     </li>
-                                    <li><a>Knitting</a>
+                                    <li><a href="#knitting">Knitting</a>
                                     </li>
                                  </ul>
                               </li>
                            </ul>
                         </li>
-                         <li>
-                              <a href="{% url 'Blog:posts' %}">Blog</a>  				  
-                                 <ul>
-                                    <li><a href="{% url 'Blog:posts' %}?category=women_talk">Girl Talk</a>
-                                    </li>
-                                    <li><a href="{% url 'Blog:posts' %}?category=fashion">Fashion</a>
-                                    </li>
-                                    <li><a href="{% url 'Blog:posts' %}?category=food">Food</a>
-                                    </li>
-                                 </ul>
-                        </li>
-                     </ul>
-                  </div>
-                  <ul class="s-12 l-2">
-                     <li class="logo hide-s hide-m">
-                        <a href="{% url 'Blog:home' %}">Megaga <br /><strong>Lucy</strong></a>
-                     </li>
-                  </ul>
-                  <div class="top-nav s-12 l-5">
-                     <ul class="top-ul chevron">
+                        <li><a href="{% url 'Blog:posts' category='women' %}">Girl Talk</a> </li>
+
+                        <li><a href="{% url 'Blog:posts' category='delicacies' %}">Food</a></li>
+
+                        <li><a href="{% url 'Blog:posts' category='fashion' %}">Fashion</a></li>
+
                         <li><a href="{% url 'Blog:events' %}">Events</a></li>
                         <li><a href="{% url 'Blog:gallery' %}">Gallery</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact</a></li>
-                     </ul> 
+                        <li><a href="{% url 'Blog:about' %}">About Us</a></li>
+                        <li><a href="{% url 'Blog:contact' %}">Contact</a></li>
+                              
+                     </ul>
                   </div>
+                 
                </div>
             </div>
          </nav>
@@ -102,7 +90,7 @@
          <div id="carousel">
             <div id="owl-demo" class="owl-carousel owl-theme">
                <div class="item">
-                  <img src="{% static "img/first.jpg" %}" alt="hvm">      
+                  <img src="{% static "img/first.jpg" %}" alt="HerVoiceMatters">      
                   <div class="carousel-text">
                      <div class="line">
                         <div class="s-12 l-9">
@@ -116,7 +104,7 @@
                   </div>
                </div>
                <div class="item">
-                  <img src="{% static "img/second.jpg" %}" alt="">      
+                  <img src="{% static "img/second.jpg" %}" alt="HerVoiceMatters">      
                   <div class="carousel-text">
                      <div class="line">
                         <div class="s-12 l-9">
@@ -130,7 +118,7 @@
                   </div>
                </div>
                <div class="item">
-                  <img src="{% static "img/third.jpg" %}" alt="">      
+                  <img src="{% static "img/third.jpg" %}" alt="HerVoiceMatters">      
                   <div class="carousel-text">
                      <div class="line">
                         <div class="s-12 l-9">
@@ -149,17 +137,17 @@
          <div id="first-block">
             <div class="line">
                <h2>What we All About</h2>
-               <p class="subtitile">Women Empowerment on a daily basis through fashion, food ,skills developments among other programs
+               <p class="subtitile">Women Empowerment on a daily basis through fashion, Cooking ,skills developments among other programs
                </p>
                <div class="margin">
-                  <a href="#" class="s-12 m-6 l-3 margin-bottom">
-                     <i class="icon-paperplane_ico icon2x"></i>
+                  <a href="{% url 'Blog:posts' category='all' %}" class="s-12 m-6 l-3 margin-bottom">
+                     <i class="icon-message  icon2x"></i>
                      <h3>Blog</h3>
-                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                     <p>you can choose from our range of topics ranging from <strong>fashion</strong> to <strong>delicacies</strong> and most importantly about <strong>women</strong>.We most appreciate your valued participation in our topics.
                      </p>
                   </a>
 
-                  <a href="#" class="s-12 m-6 l-3 margin-bottom">
+                  <a href="{% url 'Blog:events' %}" class="s-12 m-6 l-3 margin-bottom">
                      <i class="icon-star icon2x"></i>
                      <h3>Events</h3>
                      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
@@ -167,16 +155,16 @@
                   </a>
 
                   <a href="#" class="s-12 m-6 l-3 margin-bottom">
-                     <i class="icon-message icon2x"></i>
+                     <i class="icon-paperplane_ico icon2x"></i>
                      <h3>Programs</h3>
                      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
                      </p>
                   </a>
 
-                  <a href="#" class="s-12 m-6 l-3 margin-bottom">
+                  <a href="{% url 'Blog:contact' %}" class="s-12 m-6 l-3 margin-bottom">
                      <i class="icon-mail icon2x"></i>
                      <h3>Contact</h3>
-                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                     <p>Please feel free to provide us with your feedback on the issues you would want to be talked bout ,activities you would want organized 
                      </p>
                   </a>
 
@@ -190,9 +178,9 @@
                   <div class="margin">
                      <article class="s-12 l-8 center">
                         <h1>HerVoiceMatters</h1>
-                        <p class="margin-bottom">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                        <p class="margin-bottom"> On daily basis we come across women facing different kinds of oppression and many agonizing difficulties that do not foster gender parity. All this ranges from health issues(during child birth), education (girls drop out due to pregnancies), women positioning at work places, cultural practices like FGM,and the most prevalent one, gender based violence including ....
                         </p>
-                        <a class="button s-12 l-4 center" href="#">Read more</a>  			
+                        <a class="button s-12 l-4 center" href="{% url 'Blog:about' %}">Read more</a>  			
                      </article>
                   </div>
                </div>
@@ -205,35 +193,22 @@
                <p class="subtitile">Seeing is believing
                </p>
                <div class="margin">
+               {% for image in gallery %}
                   <div class="s-12 m-6 l-3">
-                     <img src="{% static 'img/first-small.jpg' %}" alt="alternative text">      
-                     <p class="subtitile">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                     <img src="{{ image.image_field.url }}" alt="alternative text">      
+                     <p class="subtitile">{{ image.description }}
                      </p>
                   </div>
-                  <div class="s-12 m-6 l-3">
-                     <img src="{% static 'img/second-small.jpg' %}" alt="alternative text">      
-                     <p class="subtitile">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                     </p>
-                  </div>
-                  <div class="s-12 m-6 l-3">
-                     <img src="{% static 'img/third-small.jpg' %}" alt="alternative text">      
-                     <p class="subtitile">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                     </p>
-                  </div>
-                  <div class="s-12 m-6 l-3">
-                     <img src="{% static 'img/fourth-small.jpg' %}" alt="alternative text">      
-                     <p class="subtitile">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                     </p>
-                  </div>
+                  {% endfor %}
                </div>
             </div>
          </div>
 
-         <div id="fourth-block"><h2>events</h2>
+         <div id="second-block"><h2>events</h2>
             <div class="line">
                <div id="owl-demo2" class="owl-carousel owl-theme">
                {% for event in events %}
-                  <a href="#" class="item">
+                  <a href="{% url 'Blog:event_detail' event.id %}" class="item">
                      <h3>{{event.title}} </h3>
                      <p class="s-12 m-12 l-8 center">{{ event.description |slice:":150"}}
                      </p>
@@ -251,12 +226,12 @@
       <footer>
          <div class="line">
             <div class="s-12 l-6">
-               <p>Copyright 2015, Vision Design - graphic zoo eeddd
+               <p>Copyright &copy; HerVoiceMatters
                </p>
             </div>
             <div class="s-12 l-6">
                <p class="right">
-                  <a class="right" href="http://www.myresponsee.com" title="Responsee - lightweight responsive framework">Design and coding by Responsee Team</a>
+                  <a class="right" href="http://www.myresponsee.com" title="Responsee - lightweight responsive framework">Design and coding </a>
                </p>
             </div>
          </div>

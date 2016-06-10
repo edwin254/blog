@@ -1,5 +1,5 @@
 {% extends 'about.html' %}
-
+{% block title %} Blog News {% endblock %}
 {% block section %}
 
   <!-- MAIN SECTION -->                  
@@ -9,6 +9,52 @@
 
             <!-- ARTICLES -->             
             <div class="s-12 l-9" style="margin-top: 23px;">
+                  <!-- text -->         
+
+                  {% if request.path == '/posts/fashion/'%}
+
+                  <!-- text -->                 
+                  <div class="post-text aside-block margin-bottom">
+                     <h1>Fashion</h1>
+                     <p style="color:#0b192f;font-size: 0.95em;">
+                        Through fashion we celebrate the phenomenalism of women and teach people to respect them the way they are.
+                        The way you dress portrays how you will be respected.The moment people see you;that sets the tone of how they will look at you and judge you.
+                     </p>
+                     <p>Fashion is fun.Fashion is classic.</p>
+                     <p>Feel inspired to try out new stuff that we will be sharing with you.Thank you for stopping by</p>
+                     <br>
+                     
+                    
+                  </div>
+                     {% endif %}
+
+                      {% if request.path == '/posts/delicacies/'%}
+
+                  <!-- text -->                 
+                  <div class="post-text aside-block margin-bottom">
+                     <h1>Delicacies</h1>
+                     <p style="color:#0b192f;font-size: 0.95em;">
+                         Spicy. Luscious. Red hot. Toothsome. Scrumptious. Yummy. Deluxe. Its all chef-d'oeuvre. Every plate. Every serving. Every additive is worth your time, worth your buds, worth a mouthful. Thank you for joining us at our kitchen wallah! Where we all agree that its a home for all women. We appreciate your feedback(Including suggestions on those secret recipes you have hidden but dying to try hem out), Also provide us with those extra tips you think might come in handy.Thank you.
+                     </p>
+                     <br>
+                     
+                    
+                  </div>
+                     {% endif %}
+
+                      {% if request.path == '/posts/women/'%}
+
+                  <!-- text -->                 
+                  <div class="post-text aside-block margin-bottom">
+                     <h1> Girl Talk </h1>
+                     <p style="color:#0b192f;font-size: 0.95em;">
+                         On this segment, we will feature every minute, every second we will spend with our girls who are the future, to inspire them to be what they ever desire. Through our girls, we will nature, provide social support, instill self esteem and provide a platform to discuss about their daily struggles such as drugs, FGM, sexual violence, gender based violence, unplanned pregnancies, prostitution, negative media exposure and lack of education to girls. Welcome and journey with us.
+                     </p>
+                     <br>
+                     
+                    
+                  </div>
+                     {% endif %}
          
            <div class="pagination">
                <span class="step-links">
@@ -105,9 +151,7 @@
                   </div>
                   {% endfor %}
                   <!-- AD REGION -->         
-                  <div class="advertising margin-bottom">
-                     <img src="img/banner.jpg" alt="ad banner">         
-                  </div>
+                  
                </aside>
             </div>
 

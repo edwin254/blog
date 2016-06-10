@@ -4,3 +4,6 @@ pycache__
 blogenv
 blogsite/db.sqlite3
 .DS_Store
+venv
+staticfiles
+.blogenv

@@ -14,8 +14,8 @@ class Event(models.Model):
 	event_date = models.DateTimeField(blank = False)
 	location = models.CharField(max_length = 150,blank = False, null = False)
 	description = models.TextField(max_length = 800)
-	height_img = models.IntegerField(default = 0)
-	width_img = models.IntegerField(default = 0)
+	height_img = models.IntegerField(default = 250)
+	width_img = models.IntegerField(default = 420)
 	image_field = models.ImageField(upload_to ="events/",
 		      null = True,
 		      blank = True,
@@ -32,15 +32,15 @@ class Event(models.Model):
 
 
 class Gallery(models.Model):
-	height_img = models.IntegerField(default = 0)
-	width_img = models.IntegerField(default = 0)
+	height_img = models.IntegerField(default = 250)
+	width_img = models.IntegerField(default = 420)
 	image_field = models.ImageField(upload_to ="gallery/",
 		      null = True,
 		      blank = True,
 		      width_field = 'width_img',
 		      height_field = "height_img",
 		)
-	description= models.CharField(max_length = 300)	
+	description= models.CharField(max_length = 200)	
 	created_date = models.DateTimeField(default = timezone.now)
 
 	class Meta:
@@ -49,14 +49,14 @@ class Gallery(models.Model):
 
 class Post(models.Model):
 	POST_CATEGORY = (
-		('fas','FASHION'),
-		('food','FOOD'),
-		('girl','GIRL TALK'),
+		('fashion','FASHION'),
+		('delicacies','FOOD'),
+		('women','GIRL TALK'),
 		) 
 
 	author = models.ForeignKey(User,default=1)
 	title = models.CharField(max_length = 200)
-	category = models.CharField(max_length= 5, choices = POST_CATEGORY, default= 'girl')
+	category = models.CharField(max_length= 11, choices = POST_CATEGORY, default= 'fashion')
 	content = models.TextField()
 	height_img = models.IntegerField(default = 0)
 	width_img = models.IntegerField(default = 0)
