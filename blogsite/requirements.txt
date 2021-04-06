@@ -2,7 +2,7 @@ Django==1.9.2
 django-allauth==0.25.2
 django-disqus==0.5
 django-navigation==0.8.1
-django-registration==2.0.4
+django-registration==3.1.2
 easy-thumbnails==2.3
 npm==0.1.1
 oauthlib==1.0.3
